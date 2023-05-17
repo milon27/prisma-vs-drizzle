@@ -1,0 +1,34 @@
+//  visualize schema here: https://prismaliser.app/
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma" // for planet scale otherwise remove it
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["filteredRelationCount"] // , "jsonProtocol" "fullTextSearch", "fullTextIndex", 
+}
+
+// #region all models
+
+model User {
+  id       String @id @default(cuid())
+  fullName String @map("full_name")
+  email    String @unique
+  password String
+
+  @@map("user")
+}
+
+// #endregion
+
+model Post {
+  id String @id @default(cuid())
+
+  title   String @db.VarChar(255)
+  content String @db.Text
+
+  @@map("post")
+}

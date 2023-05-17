@@ -1,0 +1,29 @@
+{
+  "name": "drizzle-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "seed": "ts-node --files src/seed.ts",
+    "prisma": "ts-node --files src/try-prisma.ts",
+    "drizzle": "ts-node --files src/try-drizzle.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.14.1",
+    "dotenv": "^16.0.3",
+    "drizzle-orm": "^0.25.4",
+    "mysql2": "^3.3.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.1",
+    "@types/node": "^20.1.7",
+    "drizzle-kit": "^0.17.6",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.14.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
