@@ -23,13 +23,13 @@ const testDrizzle = async () => {
   console.log(allUsers.length);
   console.log("Drizzle Execution time for get all user:", executionTime, "ms");
 
-  const postStart = new Date();
-  const allPost = await db.select().from(post);
-  const postEnd = new Date();
-  const executionTime1 = postEnd.getTime() - postStart.getTime();
-  console.log(allPost.length);
-  console.log("Drizzle Execution time for get all post:", executionTime1, "ms");
-  process.exit(0);
+  // const postStart = new Date();
+  // const allPost = await db.select().from(post);
+  // const postEnd = new Date();
+  // const executionTime1 = postEnd.getTime() - postStart.getTime();
+  // console.log(allPost.length);
+  // console.log("Drizzle Execution time for get all post:", executionTime1, "ms");
+  // process.exit(0);
 };
 
 testDrizzle();
