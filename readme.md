@@ -38,4 +38,4 @@ pnpm seed
 
 ---
 
-in my case: prisma was fast
+in my case: drizzle is 3-4 times fater than prisma
