@@ -1,34 +1,22 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient({
-  log: [
-    {
-      emit: "event",
-      level: "query",
-    },
-  ],
-});
-prisma.$on("query", (e) => {
-  console.log(`Prisma Query Duration : ${e.duration}ms`);
-});
+const prisma = new PrismaClient();
 
 const testPrisma = async () => {
-  const userRows = await prisma.user.findMany({
-    select: {
-      id: true,
-      fullName: true,
-      email: true,
-    },
+  const start = new Date();
+  const userRows = await prisma.user.findMany({});
+  const end = new Date();
+  const userExecutionTime = end.getTime() - start.getTime();
+  console.log({
+    totalUser: userRows.length,
+    userExecutionTime,
   });
-  console.log({ totalUser: userRows.length });
 
-  const postRows = await prisma.post.findMany({
-    select: {
-      id: true,
-      title: true,
-    },
-  });
-  console.log({ totalPost: postRows.length });
+  // const postStart = new Date();
+  // const postRows = await prisma.post.findMany({});
+  // const postEnd = new Date();
+  // const postExecutionTime = postEnd.getTime() - postStart.getTime();
+  // console.log({ totalPost: postRows.length, postExecutionTime });
 };
 
 testPrisma()
